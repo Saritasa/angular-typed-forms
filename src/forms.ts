@@ -10,6 +10,9 @@ type FormGroup = import('@angular/forms').FormGroup;
 type FormArray = import('@angular/forms').FormArray;
 type FormControl = import('@angular/forms').FormControl;
 type AbstractControl = import('@angular/forms').AbstractControl;
+type AbstractControlOptions = import('@angular/forms').AbstractControlOptions;
+type AsyncValidatorFn = import('@angular/forms').AsyncValidatorFn;
+type ValidatorFn = import('@angular/forms').ValidatorFn;
 type Observable<T> = import('rxjs').Observable<T>;
 
 // List of all available statuses, for some reason Angular does not define it.
