@@ -1,8 +1,5 @@
 // Defines strongly-typed form controls
 
-// TODO(Dontsov): Check
-// tslint:disable
-
 // Basic types defined in @angular/forms + rxjs/Observable
 import { DeepPartial } from './deep-partial';
 
@@ -29,7 +26,7 @@ declare module '@angular/forms' {
     statusChanges: Observable<STATUS>;
 
     get<V = unknown>(
-      path: Array<stringKeys<T> | string | number> | stringKeys<T> | string,
+      path: (stringKeys<T> | string | number)[] | stringKeys<T> | string,
     ): AbstractControlTyped<V> | null;
 
     setValue(value: Partial<T>, options?: { onlySelf?: boolean; emitEvent?: boolean }): void;
@@ -39,6 +36,7 @@ declare module '@angular/forms' {
     reset(value?: DeepPartial<T>, options?: { onlySelf?: boolean; emitEvent?: boolean }): void;
   }
 
+  // tslint:disable-next-line:max-classes-per-file
   export class FormControlTyped<T> extends FormControl {
     constructor(
       formState?: T,
@@ -53,7 +51,7 @@ declare module '@angular/forms' {
     statusChanges: Observable<STATUS>;
 
     get<V = unknown>(
-      path: Array<stringKeys<T> | string | number> | stringKeys<T> | string,
+      path: (stringKeys<T> | string | number)[] | stringKeys<T> | string,
     ): AbstractControlTyped<V> | null;
 
     setValue(value: Partial<T>, options?: { onlySelf?: boolean; emitEvent?: boolean }): void;
@@ -63,6 +61,7 @@ declare module '@angular/forms' {
     reset(value?: DeepPartial<T>, options?: { onlySelf?: boolean; emitEvent?: boolean }): void;
   }
 
+  // tslint:disable-next-line:max-classes-per-file
   export class FormGroupTyped<T> extends FormGroup {
     // Props and methods specific to FormGroup
     constructor(
@@ -71,7 +70,6 @@ declare module '@angular/forms' {
       asyncValidator?: AsyncValidatorFn | AsyncValidatorFn[] | null,
     );
 
-    //controls: { [P in keyof T | string]: AbstractControlTyped<P extends keyof T ? T[P] : any> };
     controls: { [P in keyof T]: AbstractControlTyped<T[P]> };
 
     registerControl<P extends stringKeys<T>>(name: P, control: AbstractControlTyped<T[P]>): AbstractControlTyped<T[P]>;
@@ -84,8 +82,11 @@ declare module '@angular/forms' {
 
     contains(name: stringKeys<T>): boolean;
 
-    get<P extends stringKeys<T>, V>(path: P): T[P] extends Array<V> ? FormArrayTyped<V> : AbstractControlTyped<T[P]>;
+    get<P extends stringKeys<T>, V>(path: P): T[P] extends V[] ? FormArrayTyped<V> : AbstractControlTyped<T[P]>;
     get<P extends stringKeys<T>, K>(path: P): K;
+    get<V = unknown>(
+      path: (stringKeys<T> | string | number)[] | stringKeys<T> | string,
+    ): AbstractControlTyped<V> | null;
 
     getRawValue(): T & { [disabledProp in string | number]: any };
 
@@ -95,10 +96,6 @@ declare module '@angular/forms' {
     readonly status: STATUS;
     statusChanges: Observable<STATUS>;
 
-    get<V = unknown>(
-      path: Array<stringKeys<T> | string | number> | stringKeys<T> | string,
-    ): AbstractControlTyped<V> | null;
-
     setValue(value: Partial<T>, options?: { onlySelf?: boolean; emitEvent?: boolean }): void;
 
     patchValue(value: DeepPartial<T>, options?: { onlySelf?: boolean; emitEvent?: boolean }): void;
@@ -106,6 +103,7 @@ declare module '@angular/forms' {
     reset(value?: DeepPartial<T>, options?: { onlySelf?: boolean; emitEvent?: boolean }): void;
   }
 
+  // tslint:disable-next-line:max-classes-per-file
   export class FormArrayTyped<T> extends FormArray {
     // Props and methods specific to FormArray
     constructor(
@@ -140,7 +138,7 @@ declare module '@angular/forms' {
     statusChanges: Observable<STATUS>;
 
     get<V = unknown>(
-      path: Array<stringKeys<T> | string | number> | stringKeys<T> | string,
+      path: (stringKeys<T> | string | number)[] | stringKeys<T> | string,
     ): AbstractControlTyped<V> | null;
   }
 }

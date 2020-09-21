@@ -8,9 +8,6 @@ import {
   AsyncValidatorFn,
 } from '@angular/forms';
 
-// TODO(Dontsov): Check
-// tslint:disable
-
 interface InitialFormState<T> {
   /** Form value. */
   value: Partial<T>;
@@ -78,39 +75,25 @@ declare module '@angular/forms' {
   }
 }
 
-// TODO(Dontsov): Check
-// @ts-ignore
 FormBuilder.prototype.groupTyped = function <T>(
   controlsConfig: { [P in keyof T]?: any },
   options?: any,
-  // TODO(Dontsov): Check
-  // @ts-ignore
 ): FormGroupTyped<T> {
-  // TODO(Dontsov): Check
-  // @ts-ignore
-  return this.group(controlsConfig, options);
+  return this.group(controlsConfig, options) as FormGroupTyped<T>;
 };
 
 FormBuilder.prototype.arrayTyped = function <T>(
   controlsConfig: any[],
   validatorOrOpts?: ValidatorFn | ValidatorFn[] | AbstractControlOptions | null,
   asyncValidator?: AsyncValidatorFn | AsyncValidatorFn[] | null,
-  // TODO(Dontsov): Check
-  // @ts-ignore
 ): FormArrayTyped<T> {
-  // TODO(Dontsov): Check
-  // @ts-ignore
-  return this.array(controlsConfig, validatorOrOpts, asyncValidator);
+  return this.array(controlsConfig, validatorOrOpts, asyncValidator) as FormArrayTyped<T>;
 };
 
 FormBuilder.prototype.controlTyped = function <T>(
   formState: Partial<T> | InitialFormState<T>,
   validatorOrOpts?: ValidatorFn | ValidatorFn[] | AbstractControlOptions | null,
   asyncValidator?: AsyncValidatorFn | AsyncValidatorFn[] | null,
-  // TODO(Dontsov): Check
-  // @ts-ignore
 ): FormControlTyped<T> {
-  // TODO(Dontsov): Check
-  // @ts-ignore
-  return this.control(formState, validatorOrOpts, asyncValidator);
+  return this.control(formState, validatorOrOpts, asyncValidator) as FormControlTyped<T>;
 };

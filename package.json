@@ -1,6 +1,6 @@
 {
   "name": "angular-typed-forms",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -24,12 +24,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/de-don/angular-typed-forms.git"
+    "url": "git+https://github.com/saritasa/angular-typed-forms.git"
   },
   "bugs": {
-    "url": "https://github.com/de-don/angular-typed-forms/issues"
+    "url": "https://github.com/saritasa/angular-typed-forms/issues"
   },
-  "homepage": "https://github.com/de-don/angular-typed-forms#readme",
+  "homepage": "https://github.com/saritasa/angular-typed-forms#readme",
   "author": "Saritasa",
   "license": "ISC",
   "devDependencies": {
