@@ -42,5 +42,8 @@
     "@angular/core": "^10.1.2",
     "@angular/forms": "^10.1.2",
     "rxjs": "^6.6.3"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
