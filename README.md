@@ -3,13 +3,13 @@
 ## Installation
 
 ```
-$ npm i -S angular-typed-forms
+$ npm i -S @saritasa/angular-typed-forms
 ```
 
 After installation, import this module to main file of your project:
 
 ```js
-import 'angular-typed-forms';
+import '@saritasa/angular-typed-forms';
 ```
 
 ## Examples:

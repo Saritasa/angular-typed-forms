@@ -1,18 +1,14 @@
 {
-  "name": "angular-typed-forms",
+  "name": "@saritasa/angular-typed-forms",
   "version": "1.0.0",
-  "description": "",
+  "description": "The library that provides typing for angular reactive forms.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "tslint -p tsconfig.json",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm run lint",
-    "preversion": "npm run lint",
-    "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "prepare": "npm run build"
   },
   "keywords": [
     "angular",
@@ -39,11 +35,8 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
-    "@angular/core": "^10.1.2",
-    "@angular/forms": "^10.1.2",
+    "@angular/core": ">=9.0.0",
+    "@angular/forms": ">=9.0.0",
     "rxjs": "^6.6.3"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   }
 }
