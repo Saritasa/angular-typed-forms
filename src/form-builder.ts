@@ -15,6 +15,16 @@ interface InitialFormState<T> {
   disabled: boolean;
 }
 
+// Typing for control configuration inside ControlsConfig
+type ControlConfigValue<T> = T | { value: T; disabled: boolean };
+type ControlConfigValidators = ValidatorFn | ValidatorFn[];
+type ControlConfig<T> = [ControlConfigValue<T>] | [ControlConfigValue<T>, ControlConfigValidators];
+
+// Typing for controls config
+type ControlsConfig<T> = {
+  [P in keyof T]?: ControlConfig<T[P]>;
+};
+
 declare module '@angular/forms' {
   /** @inheritdoc */
   export interface FormBuilder {
@@ -25,7 +35,7 @@ declare module '@angular/forms' {
      * @param options Additional arguments, see `group` method.
      */
     groupTyped<T>(
-      controlsConfig: { [P in keyof T]?: any },
+      controlsConfig: ControlsConfig<T>,
       options?:
         | AbstractControlOptions
         | {
@@ -49,7 +59,7 @@ declare module '@angular/forms' {
      * functions.
      */
     arrayTyped<T>(
-      controlsConfig: any[],
+      controlsConfig: ControlsConfig<T>[],
       validatorOrOpts?: ValidatorFn | ValidatorFn[] | AbstractControlOptions | null,
       asyncValidator?: AsyncValidatorFn | AsyncValidatorFn[] | null,
     ): FormArrayTyped<T>;
@@ -75,15 +85,12 @@ declare module '@angular/forms' {
   }
 }
 
-FormBuilder.prototype.groupTyped = function <T>(
-  controlsConfig: { [P in keyof T]?: any },
-  options?: any,
-): FormGroupTyped<T> {
+FormBuilder.prototype.groupTyped = function <T>(controlsConfig: ControlsConfig<T>, options?: any): FormGroupTyped<T> {
   return this.group(controlsConfig, options) as FormGroupTyped<T>;
 };
 
 FormBuilder.prototype.arrayTyped = function <T>(
-  controlsConfig: any[],
+  controlsConfig: ControlsConfig<T>[],
   validatorOrOpts?: ValidatorFn | ValidatorFn[] | AbstractControlOptions | null,
   asyncValidator?: AsyncValidatorFn | AsyncValidatorFn[] | null,
 ): FormArrayTyped<T> {

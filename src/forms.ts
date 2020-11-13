@@ -65,7 +65,7 @@ declare module '@angular/forms' {
   export class FormGroupTyped<T> extends FormGroup {
     // Props and methods specific to FormGroup
     constructor(
-      controls: { [P in keyof T]: AbstractControl },
+      controls: { [P in keyof T]: AbstractControlTyped<T[P]> },
       validatorOrOpts?: ValidatorFn | ValidatorFn[] | AbstractControlOptions | null,
       asyncValidator?: AsyncValidatorFn | AsyncValidatorFn[] | null,
     );
