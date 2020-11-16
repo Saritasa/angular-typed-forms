@@ -41,12 +41,7 @@ declare module '@angular/forms' {
      */
     groupTyped<T>(
       controlsConfig: ControlsConfig<T>,
-      options?:
-        | AbstractControlOptions
-        | {
-        [key: string]: any;
-      }
-        | null,
+      options?: AbstractControlOptions | { [key: string]: any } | null,
     ): FormGroupTyped<T>;
 
     /**
