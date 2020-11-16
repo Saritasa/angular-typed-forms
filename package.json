@@ -1,6 +1,6 @@
 {
   "name": "@saritasa/angular-typed-forms",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The library that provides typing for angular reactive forms.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

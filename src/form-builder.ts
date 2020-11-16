@@ -1,11 +1,12 @@
 import {
-  FormBuilder,
-  FormGroupTyped,
-  FormArrayTyped,
-  FormControlTyped,
-  ValidatorFn,
   AbstractControlOptions,
+  AbstractControlTyped,
   AsyncValidatorFn,
+  FormArrayTyped,
+  FormBuilder,
+  FormControlTyped,
+  FormGroupTyped,
+  ValidatorFn,
 } from '@angular/forms';
 
 interface InitialFormState<T> {
@@ -18,11 +19,15 @@ interface InitialFormState<T> {
 // Typing for control configuration inside ControlsConfig
 type ControlConfigValue<T> = T | { value: T; disabled: boolean };
 type ControlConfigValidators = ValidatorFn | ValidatorFn[];
-type ControlConfig<T> = [ControlConfigValue<T>] | [ControlConfigValue<T>, ControlConfigValidators];
+type ControlConfig<T> =
+  | AbstractControlTyped<T>
+  | FormArrayTyped<T extends (infer U)[] ? U : T>
+  | [ControlConfigValue<T>]
+  | [ControlConfigValue<T>, ControlConfigValidators];
 
 // Typing for controls config
 type ControlsConfig<T> = {
-  [P in keyof T]?: ControlConfig<T[P]>;
+  [P in keyof T]: ControlConfig<T[P]>;
 };
 
 declare module '@angular/forms' {
@@ -39,8 +44,8 @@ declare module '@angular/forms' {
       options?:
         | AbstractControlOptions
         | {
-            [key: string]: any;
-          }
+        [key: string]: any;
+      }
         | null,
     ): FormGroupTyped<T>;
 
