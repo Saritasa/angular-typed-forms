@@ -1,6 +1,6 @@
 {
   "name": "@saritasa/angular-typed-forms",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "The library that provides typing for angular reactive forms.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -32,11 +32,11 @@
     "prettier": "^2.1.1",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^4.0.2"
+    "typescript": "^4.4.4"
   },
   "dependencies": {
-    "@angular/core": ">=9.0.0",
-    "@angular/forms": ">=9.0.0",
-    "rxjs": "^6.6.3"
+    "@angular/core": ">=13.0.0",
+    "@angular/forms": ">=13.0.0",
+    "rxjs": "^7.4.0"
   }
 }
