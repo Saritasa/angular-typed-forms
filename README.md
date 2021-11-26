@@ -12,6 +12,13 @@ After installation, import this module to main file of your project:
 import '@saritasa/angular-typed-forms';
 ```
 
+## Compatibility
+
+| Angular version      | Package version |
+| ----------- | ----------- |
+| 13      | 1.0.4       |
+| < 13   | 1.0.3        |
+
 ## Examples:
 
 ```typescript
