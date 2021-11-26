@@ -21,9 +21,9 @@ declare module '@angular/forms' {
   export class AbstractControlTyped<T> extends AbstractControl {
     // Base props and methods common to FormControl/FormGroup/FormArray
     readonly value: T;
-    valueChanges: Observable<T>;
+    readonly valueChanges: Observable<T>;
     readonly status: STATUS;
-    statusChanges: Observable<STATUS>;
+    readonly statusChanges: Observable<STATUS>;
 
     get<V = unknown>(
       path: (stringKeys<T> | string | number)[] | stringKeys<T> | string,
@@ -46,9 +46,9 @@ declare module '@angular/forms' {
 
     // Copied from AbstractControlTyped<T> because typescript does not support extending from multiple classes
     readonly value: T;
-    valueChanges: Observable<T>;
+    readonly valueChanges: Observable<T>;
     readonly status: STATUS;
-    statusChanges: Observable<STATUS>;
+    readonly statusChanges: Observable<STATUS>;
 
     get<V = unknown>(
       path: (stringKeys<T> | string | number)[] | stringKeys<T> | string,
@@ -92,9 +92,9 @@ declare module '@angular/forms' {
 
     // Copied from AbstractControlTyped<T> because typescript does not support extending from multiple classes
     readonly value: T;
-    valueChanges: Observable<T>;
+    readonly valueChanges: Observable<T>;
     readonly status: STATUS;
-    statusChanges: Observable<STATUS>;
+    readonly statusChanges: Observable<STATUS>;
 
     setValue(value: Partial<T>, options?: { onlySelf?: boolean; emitEvent?: boolean }): void;
 
@@ -131,11 +131,11 @@ declare module '@angular/forms' {
     reset(value?: DeepPartial<T>[], options?: { onlySelf?: boolean; emitEvent?: boolean }): void;
 
     readonly value: T[];
-    valueChanges: Observable<T[]>;
+    readonly valueChanges: Observable<T[]>;
 
     // Copied from AbstractControlTyped<T> because typescript does not support extending from multiple classes
     readonly status: STATUS;
-    statusChanges: Observable<STATUS>;
+    readonly statusChanges: Observable<STATUS>;
 
     get<V = unknown>(
       path: (stringKeys<T> | string | number)[] | stringKeys<T> | string,
