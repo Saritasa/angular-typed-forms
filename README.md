@@ -16,7 +16,7 @@ import '@saritasa/angular-typed-forms';
 
 | Angular version      | Package version |
 | ----------- | ----------- |
-| 13      | 1.0.4       |
+| 13      | 2.0.0       |
 | < 13   | 1.0.3        |
 
 ## Examples:
